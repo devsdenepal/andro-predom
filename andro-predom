@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+#(c) Devs d`e Nepal
 PATH=/bin:/usr/bin:
-
+clear
+#colors
 NONE='\033[00m'
 RED='\033[01;31m'
 GREEN='\033[01;32m'
@@ -10,6 +12,7 @@ CYAN='\033[01;36m'
 WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
+#banner
 echo -e "==== ${PURPLE}ANDRO${NONE} ${RED}~PREDOM${NONE} ===="
 echo -e " 
 ${PURPLE} █████  ███    ██ ██████  ██████   ██████  ██ ██████ ${NONE}${RED}     ██████  ██████  ███████ ██████   ██████  ███    ███${NONE} 
@@ -36,12 +39,15 @@ echo -e "${RED}6. Reboot mdevice                       15. Brute Android Pin Att
 echo -e "${YELLOW}7. See android version                  16. Brute Android Password Attack - word${NONE}"
 echo -e "${RED}8. Uninstall an application             17. Get Screenshot directly to CWD '$(pwd)'${NONE}"
 echo -e "${YELLOW}9. Send SMS / make a call               18. Force stop an application${NONE}${YELLOW}"
+echo -e "${WHITE} --- OTHER SERVICE ---${NONE}"
+echo -e "${RED}19. Get Screen recorded directly to CWD'$(pwd)'${NONE}"
 fi
 read -p "$(whoami)@andropredom :~ " select
 #toggle wirless mode
 if [[ "$select" -eq 1 ]]; then
 echo "Switching to wireless mode..."
 echo $(adb tcpip 5555)
+sleep 2
 echo $(adb connect `adb shell ip addr show wlan0  | grep 'inet ' | cut -d ' ' -f 6 | cut -d / -f 1`:5555)
 elif [[ "$select" -eq 2 ]]; then
 echo -e "${RED} Killing the server ${NONE}"
@@ -74,7 +80,7 @@ elif [[ "$select" -eq 8 ]];
  then
  read -p "Package name to uninstall: " select
  echo $(adb uninstall '$select')
-elif [[ "$slect" -eq 9 ]];
+elif [[ "$select" -eq 9 ]];
  then
  read -p "What do you want to make? (sms:1/call:2): " select
  if [[ "$select" -eq 1 ]];
@@ -139,11 +145,11 @@ elif [[ "$select" -eq 14 ]];
 elif [[ "$select" -eq 15 ]];
  then
  echo "Brute Pin 6 Digit"
- for i in {000000..999999}; do
-     echo "Try =>" echo $i
-
-     for (( j=0; j<echo ${#i}; j++ )); 
-     do
+ for i in {000000..999999}; 
+ do
+ echo "Try =>" echo $i
+  for (( j=0; j<echo ${#i}; j++ )); 
+  do
           echo $(adb shell input keyevent echo $((`echo echo ${i:echo $j:1}`+7)))
      done
 
@@ -191,8 +197,25 @@ elif [[ "$select" -eq 16 ]];
 
          sleep 30
          echo $(adb shell input keyevent 82)
-           cho $(adb shell input swipe 407 1211 378 85)
+         echo $(adb shell input swipe 407 1211 378 85)
      fi
  done
-
+elif [[ "$select" -eq 17 ]];
+ then
+ echo -e "${CYAN}Taking screenshot...${NONE}"
+ echo $(adb shell screencap /sdcard/screen.png)
+ echo $(adb pull /sdcard/screen.png)
+elif [[ "$select" -eq 18 ]];
+ then
+ echo "Package to stop : "
+ read -r package_name
+ echo $(adb shell am force-stop '$package_name')
+elif [[ "$select" -eq 19 ]];
+ then
+ echo -e "${GREEN} Starting video recording...(capture for 30 sec.)${NONE}"
+ echo $(adb shell screenrecord --verbose /sdcard/capture.mp4)
+ sleep 30
+ echo -e "${CYAN} Fetching video and removing from device..${NONE}"
+ echo $(adb shell exit)
+ echo $(adb pull /sdcard/capture.mp4)
 fi
