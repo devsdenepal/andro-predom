@@ -30,9 +30,11 @@ Unauthorized use of this tool is totally prohibited. Developer strictly do not a
 - Change the current directory to andro-predom
 > `cd andro-predom`
 - CHMOD
-> `chmod +x *`
-- execute main.sh
-> `./main.sh`
+> `chmod +x  *`
+> Install requirements
+> `sudo ./install.sh`
+- execute andro-predom
+> `./andro-predom`
 ---
 ## LICENCE
 ----
