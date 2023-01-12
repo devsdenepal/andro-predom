@@ -8,6 +8,7 @@
 ---
 ### (i) About
 ---
+
 ```
 In the world of mobile app development, Android has become the dominant player in the market. With over 2.5 billion active devices worldwide, it's no surprise that Android app development has become a high-demand field. However, with the rise of Android comes the need for tools and technologies to exploit its capabilities. Enter Android-Predom, a new and innovative exploiting tool that interacts with Android Debug Bridge (ADB) and is inspired by a Python-based tool called "Ghost."
 
@@ -19,6 +20,7 @@ Another key feature of Android-Predom is its user-friendly interface. The tool i
 
 In conclusion, Android-Predom is a powerful and innovative tool that is revolutionizing the way we interact with and exploit Android devices. With its easy-to-use interface, modern features, and regular updates, it is quickly becoming a go-to tool for developers and security professionals alike. We highly recommend giving Android-Predom a try and seeing for yourself the many benefits it has to offer.
 ```
+
 ### Reason(s) to develop...
 ---
 ```
