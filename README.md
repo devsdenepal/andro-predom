@@ -34,7 +34,13 @@ Android-Predom is a part of a private project called "PREDOMINANT" and is totall
 Android-Predom(this tool) is developed for development and educational purpose and is expected to use ethically. 
 Unauthorized use of this tool is totally prohibited. Developer strictly do not advice end user to use it without prior mutual consent or notice. Developer of this tool is not responsible for the harms and misuse of this tool in any case. Obeying and following of local, state, and federal rules is user's responsibility.  
 ```
-### Usage
+### Features
+- [x] No root previlage required over device
+- [x] Shell based program
+- [x] Wireless connectivity maintained
+- [x] Lock brute force
+- [x] Send SMS, make calls, take screenshot, record screen, see running packages and more
+### Setup
 ---
 - Clone this respository
 > `git clone https://github.com/devsdenepal/andro-predom`
