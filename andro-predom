@@ -22,12 +22,13 @@ ${PURPLE}██   ██ ██  ██ ██ ██   ██ ██   ██ �
 ${PURPLE}██   ██ ██   ████ ██████  ██   ██  ██████  ██ ██████ ${NONE}${RED}     ██      ██   ██ ███████ ██████   ██████  ██      ██${NONE}"
 echo -e "**** ${BOLD}Developer${NONE}: ${UNDERLINE}${CYAN}Dev. Gautam Kumar${NONE} ***"
 echo $(adb devices)
-read -p "Continue? (1/2) :" select
+echo -e "${RED}(1)${NONE} Confirm Continue     ${RED}(2) EXIT ${NONE}"
+read -p "[*] Choose an action >> " select
 echo $select
-if [[ "$select" -eq 1 ]]; then
+if [[ "$select" -eq 2 ]]; then
 echo -e "${RED}Thanks for using${NONE}${PURPLE} ANDRO${NONE} ${RED}~PREDOM${NONE}";
 
-elif [[ "$select" -eq 2 ]]; then
+elif [[ "$select" -eq 1 ]]; then
 echo -e "${WHITE}Nice to hear that...${NONE}"
 echo -e "${UNDERLINE}=== Options ===${NONE}"
 echo -e "${YELLOW}1. Toggle wireless mode                 10. Edit/See battery level${NONE}"
